@@ -16,11 +16,11 @@ export class YundanListComponent implements OnInit {
     yundans: Yundan[] = [];
     ngOnInit(): void {
         this.yundans = this.todoService.getAllYundans();
-        this.nativeAudio.preloadSimple('chayan', 'assets/audio/chayan.wav').then((msg)=>{},(msg)=>{
-
-            console.log(msg);
-        });
-        
+        this.nativeAudio.preloadSimple('chayan', 'assets/audio/chayan.wav');
+        this.nativeAudio.preloadSimple('fangxing', 'assets/audio/fangxing.wav');
+        this.nativeAudio.preloadSimple('nomethod', 'assets/audio/nomethod.wav');
+        this.nativeAudio.preloadSimple('nostate', 'assets/audio/nostate.wav');
+        this.nativeAudio.preloadSimple('nodata', 'assets/audio/nodata.wav');
     }
 
     constructor(public navCtrl: NavController, private todoService: YundanService, private nativeAudio: NativeAudio) { }
@@ -34,21 +34,20 @@ export class YundanListComponent implements OnInit {
         //播放声音
         if (this.yundans.length == 0) {
             // this.audioProvider.play(2);
-
+            this.nativeAudio.play("nodata");
+            
         } else if (this.yundans.length == 1) {
             let yd = this.yundans[0];
             if (yd.state == "放行") {
-                
+                this.nativeAudio.play("fangxing");
             } else if (yd.state == "查验") {
-                console.log("查验")
-                this.nativeAudio.play("chayan",()=>{
-                    console.log("play complete")
-                });
+                this.nativeAudio.play("chayan");
+
             } else if (yd.state == "") {
-                
+                this.nativeAudio.play("nostate");
             }
         } else {
-            
+            this.nativeAudio.play("nomethod");
         }
     }
     // get yundans() {
