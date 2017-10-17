@@ -28,6 +28,7 @@ export class YundanListComponent implements OnInit {
     getYundanByNo($event) {
         if (!this.yundan.no.trim()) {
             this.yundans = this.todoService.getAllYundans();
+            return;
         }
         $event.target.select();
         this.yundans = this.todoService.getYundanByNo(this.yundan.no.trim());
