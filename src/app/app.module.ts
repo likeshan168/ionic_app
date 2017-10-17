@@ -5,25 +5,36 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
-
+// import { HomePage } from '../pages/home/home';
+// import{ListPage} from '../pages/list/list';
+// import { TodoModule } from '../pages/todo/todo.module';
+import { YundanModule } from '../pages/yundan/yundan.module';
+import { AboutComponent } from '../pages/about/about.component';
+// import { IonicAudioModule, AudioProvider, WebAudioProvider, defaultAudioProviderFactory, CordovaMediaProvider } from 'ionic-audio';
+// export function myCustomAudioProviderFactory() {
+//   return (window.hasOwnProperty('cordova')) ? new CordovaMediaProvider() : new WebAudioProvider();
+// }
+import { NativeAudio } from '@ionic-native/native-audio';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    AboutComponent 
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    // IonicAudioModule.forRoot(defaultAudioProviderFactory),
+    YundanModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    AboutComponent 
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    NativeAudio,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
