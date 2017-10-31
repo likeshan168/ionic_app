@@ -4,5 +4,11 @@
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/GetList",
+      "proxyUrl": "http://101.201.28.235/Services/YD/YunDanService/GetList"
+    }
+  ]
 }

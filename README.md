@@ -24,3 +24,16 @@ $ ionic cordova run ios
 
 Substitute ios for android if not on a Mac.
 
+run on web
+```
+$ ionic serve
+
+```
+
+Release android
+```
+$ ionic cordova build --release android
+$ keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -keysize 2048 -validity 10000
+$ jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore HelloWorld-release-unsigned.apk alias_name
+```
+

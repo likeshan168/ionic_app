@@ -2,9 +2,13 @@
     <ion-navbar>
       <ion-title>运单列表</ion-title>
       <ion-buttons end>
-        <button ion-button icon-only (click)="gotoAbout()">
-          <ion-icon name="construct"></ion-icon>
+        <!--<button ion-button icon-only (click)="gotoAbout()">-->
+          <!--<ion-icon name="construct"></ion-icon>-->
+        <!--</button>-->
+        <button ion-button icon-only (click)="refresh()">
+          <ion-icon name="refresh"></ion-icon>
         </button>
+
       </ion-buttons>
     </ion-navbar>
   </ion-header>
@@ -12,7 +16,8 @@
     <ion-card>
       <section class="yundanapp">
         <header class="header">
-          <input class="new-yundan" placeholder="输入运单号!" autofocus="" [(ngModel)]="yundan.no" (keyup.enter)="getYundanByNo($event)">
+          <span *ngIf="yundans.length">主运单号：{{yundans[0].MasterNo}}</span>
+          <input class="new-yundan" placeholder="输入运单号!" autofocus="" [(ngModel)]="yundan.No" (keyup.enter)="getYundanByNo($event)">
         </header>
         <section class="main" *ngIf="yundans.length > 0">
           <ul class="yundan-list">
@@ -21,7 +26,7 @@
           </ul>
         </section>
         <footer class="footer" *ngIf="yundans.length > 0">
-          <span class="yundan-count"><strong>{{yundans.length}}</strong> {{yundans.length == 1 ? 'item' : 'items'}} left</span>
+          <span class="yundan-count"><strong>{{yundans.length}}</strong> {{yundans.length == 1 ? 'item' : 'items'}} left </span>
         </footer>
       </section>
     </ion-card>

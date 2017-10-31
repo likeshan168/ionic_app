@@ -1,6 +1,8 @@
 export class Yundan {
-    no: string='';
-    state: string = '';
-  
-    constructor() { }
+  MasterNo: string = '';
+  No: string = '';
+  State: string = '';
+
+  constructor() {
   }
+}
